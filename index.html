@@ -6,25 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo List </title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap" rel="stylesheet">
 </head>
 <body>
-  <section class="container">
-     <form action="" id="inputForm">
-         <label for="toDo">
-             <input type="text" name='toDo' placeholder='Enter a new task'>
-         </label>
-         <button id="submit">Submit</button>
-     </form> 
-     <section class="taskListContainer">
-         <h2>Basic To-Do List</h2>
-         <button class='clearAll'>Clear All Task Items</button>
-         <ul class="taskList">
-             <!-- <li><span>Walk the Dog</span> <button>Delete Task</button></li>
-             <li>Take out the Trash <button>Delete Task</button></li>
-             <li>Feed the chickens <button>Delete Task</button></li> -->
-         </ul>
-     </section>
-  </section>
+    <div class="page-container">
+        <section class="container">
+            <h1>Action Plan</h1>
+           <form action="" id="inputForm">
+               <label for="toDo">
+                   <input type="text" name='toDo' placeholder='Enter a new task'>
+               </label>
+               <button class = "submitBtn btn" id="submit">Submit</button>
+           </form> 
+           <section class="taskListContainer">
+               <ol class="taskList"></ol>
+              </section>
+          </section>
+      <footer class='footer'>
+          <div>
+              <button class='clearAll submitBtn btn'>Clear All Task Items</button>
+          </div>
+            <p>Photo by Ann H from Pexels</p>
+      </footer>
+    </div>
+
     <script src = 'app.js'></script>
 </body>
 </html>

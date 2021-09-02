@@ -11,10 +11,10 @@
 // Variables
 const userInput = document.querySelector('input[name="toDo"]');
 const form = document.querySelector('#inputForm');
-const ul = document.querySelector('ul');
-// Why can't I use '.classList' within the () for the ul variable?
+const ol = document.querySelector('ol');
 const li = document.querySelector('li');
 const resetApp = document.querySelector('.clearAll');
+
 
 
 // Load local storage when document is loaded
@@ -23,12 +23,12 @@ const resetApp = document.querySelector('.clearAll');
         if (savedTasks !== null){
             for (let i = 0; i < savedTasks.length; i++){
                 newListItem = document.createElement('li');
-                console.log(savedTasks[i]);
                 newListItem.innerText = savedTasks[i];
-                const deleteBtn = document.createElement('button');
+                let deleteBtn = document.createElement('button');
                 deleteBtn.innerText = 'Delete Task'
+                deleteBtn.classList.add('btn', 'deleteBtn');
                 newListItem.appendChild(deleteBtn);
-                ul.appendChild(newListItem);
+                ol.appendChild(newListItem);
             }
         }
     });
@@ -39,12 +39,13 @@ const resetApp = document.querySelector('.clearAll');
         if (userInput.value === ''){
             alert('Enter a task');
         } else {
-            const newListItem = document.createElement('li');
-            const deleteBtn = document.createElement('button');
+            let newListItem = document.createElement('li');
+            let deleteBtn = document.createElement('button');
             deleteBtn.innerText = 'Delete Task'
             newListItem.innerText = userInput.value
+            deleteBtn.classList.add('btn', 'deleteBtn');
             newListItem.appendChild(deleteBtn);
-            ul.appendChild(newListItem);
+            ol.appendChild(newListItem);
             storeInLocalStorage(userInput.value);
             userInput.value = '';
         }
@@ -63,15 +64,14 @@ const resetApp = document.querySelector('.clearAll');
     }
 
 // Mark a to do as completed (cross out the text of the todo) and remove with button
-    ul.addEventListener('click', function(e) {
+    ol.addEventListener('click', function(e) {
         if (e.target.tagName === 'BUTTON') {
             let deleteText = e.target.parentElement.childNodes[0].nodeValue;
             let deleteItem = e.target.parentElement;
             deleteItem.remove();
             removeFromLocalStorage(deleteText);
         } else if (e.target.tagName = 'LI') {
-            e.target.style.color = 'red';
-            e.target.style.textDecoration = 'line-through';
+                e.target.classList.toggle('crossOut')
         }
     });
 
