@@ -1,7 +1,7 @@
 # ToDo List Application
 
 ## Check it out at: 
-https://dlmedeiro.github.io/Springboard_ToDoApp/
+https://dlmedeiro.github.io/Springboard-ToDoApp/
 
 ## How it works
 
